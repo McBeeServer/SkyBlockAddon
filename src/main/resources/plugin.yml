@@ -1,0 +1,5 @@
+name: SkyBlockAddon
+version: '${project.version}'
+main: fun.mcbee.plugin.skyblockaddon.SkyBlockAddon
+api-version: 1.18
+authors: [ PxLib ]
