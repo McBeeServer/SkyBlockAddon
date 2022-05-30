@@ -1,8 +1,11 @@
 package fun.mcbee.plugin.skyblockaddon.Listeners;
 
 import fun.mcbee.api.honeyapi.ScoreBoard.BeeScoreboard;
+import fun.mcbee.plugin.skyblockaddon.SkyBlockAddon;
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
+import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,7 +22,7 @@ public class ScoreBoard implements Listener {
 
 
     public ScoreBoard() {
-        Bukkit.getServer().getScheduler().runTaskTimer(BeeHubCore.getInstance(), () -> {
+        Bukkit.getServer().getScheduler().runTaskTimer(SkyBlockAddon.getInstance(), () -> {
             for (BeeScoreboard board : this.boards.values()) {
                 updateBoard(board);
             }
@@ -59,10 +62,14 @@ public class ScoreBoard implements Listener {
                 ChatColor.of("#738291")+""+ChatColor.BOLD+"| "+ChatColor.of("#F28C28")+""+ChatColor.BOLD+"Name: " + ChatColor.of("#FAD5A5")+lobbysb.getPlayer().getName(),
                 ChatColor.of("#738291")+""+ChatColor.BOLD+"| "+ChatColor.of("#F28C28")+""+ChatColor.BOLD+"Ping: " + ChatColor.of("#FAD5A5")+lobbysb.getPlayer().getPing(),
                 "",
-                ChatColor.of("#738291")+""+ChatColor.BOLD+"| "+ChatColor.of("#F28C28")+""+ChatColor.BOLD+"Flight: " + ChatColor.of("#FAD5A5")+ (lobbysb.getPlayer().isFlying() ? "Yes" : "No"),
+                ChatColor.of("#738291") + "| " + ChatColor.of("#F28C28") +ChatColor.BOLD+ "Coins: " + ChatColor.of("#FAD5A5") + PlaceholderAPI.setPlaceholders(lobbysb.getPlayer(),"%vault_eco_balance_fixed%"),
                 "",
-                ChatColor.of("#738291")+""+ChatColor.BOLD+"| "+ChatColor.of("#F28C28")+""+ChatColor.BOLD+"Server: " + ChatColor.of("#FAD5A5")+ BeeHubCore.getInstance().serverid,
-                ChatColor.of("#738291")+""+ChatColor.BOLD+"| "+ChatColor.of("#F28C28")+""+ChatColor.BOLD+"Lobby: " + ChatColor.of("#FAD5A5")+BeeHubCore.getInstance().servername,
+                ChatColor.of("#738291") + "| " + ChatColor.of("#F28C28") +ChatColor.BOLD+ "Island Level: " + ChatColor.of("#FAD5A5") + PlaceholderAPI.setPlaceholders(lobbysb.getPlayer(), "%iridiumskyblock_island_level%"),
+                ChatColor.of("#738291") + "| " + ChatColor.of("#F28C28") +ChatColor.BOLD+ "Island Value: " + ChatColor.of("#FAD5A5") + PlaceholderAPI.setPlaceholders(lobbysb.getPlayer(), "%iridiumskyblock_island_value%"),
+                "",
+                ChatColor.of("#738291") + "| " + ChatColor.of("#F28C28") +ChatColor.BOLD+ "Bank Money: " + ChatColor.of("#FAD5A5") + PlaceholderAPI.setPlaceholders(lobbysb.getPlayer(), "%iridiumskyblock_island_bank_money%"),
+                ChatColor.of("#738291") + "| " + ChatColor.of("#F28C28") +ChatColor.BOLD+ "Bank Cystals: " + ChatColor.of("#FAD5A5") + PlaceholderAPI.setPlaceholders(lobbysb.getPlayer(), "%iridiumskyblock_island_bank_crystals%"),
+                ChatColor.of("#738291") + "| " + ChatColor.of("#F28C28") +ChatColor.BOLD+ "Bank Exp: " + ChatColor.of("#FAD5A5") + PlaceholderAPI.setPlaceholders(lobbysb.getPlayer(), "%iridiumskyblock_island_bank_experience%"),
                 "",
                 ChatColor.of("#FFBF00")+""+ChatColor.BOLD + "discord.gg/mcbee"
 
