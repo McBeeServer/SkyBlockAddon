@@ -3,3 +3,9 @@ version: '${project.version}'
 main: fun.mcbee.plugin.skyblockaddon.SkyBlockAddon
 api-version: 1.18
 authors: [ PxLib ]
+commands:
+  spawn:
+    aliases: [lobby]
+  hat:
+    aliases: [hat]
+    permission: bee.honey.hat
